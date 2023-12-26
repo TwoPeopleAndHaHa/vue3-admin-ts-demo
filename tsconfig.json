@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"types": ["vite/client", "element-plus/global"],
+		"baseUrl": "./",
+		"paths": {
+			"@": ["src"],
+			"@/*": ["src/*"]
+		}
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.vue",
+		"src/**/**/*.vue",
+		"build/**/*.ts",
+		"build/**/*.d.ts",
+		"**/**/*.ts"
+	],
+	"exclude": ["node_modules", "dist", "**/*.js"]
+}
