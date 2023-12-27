@@ -35,7 +35,6 @@
 </template>
 
 <script setup lang="ts">
-	import { FormEl } from '@/typings/global'
 	import { ElMessage } from 'element-plus'
 	const router = useRouter()
 	const loginFormRef = ref()
@@ -89,3 +88,4 @@
 		margin: 0 auto;
 	}
 </style>
+@/types/global

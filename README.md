@@ -10,6 +10,7 @@
 - 在 vite.config.ts 文件直接访问 import.meta.env 是获取不到 env 环境文件的,需要做一层转换,可参考 [配置环境中使用环境变量](https://cn.vitejs.dev/config/#using-environment-variables-in-config)
 
 - eslint 和 prettier 配置 , 默认采用 prettier 保存的时候去格式化 , eslint 做提示使用 , 当 eslint 与 prettier 冲突的时候以 pettier 为准 , eslint 主要做校验
+
   - 'process' is not defined.
     - 指派 eslint 环境
     ```
@@ -18,3 +19,7 @@
     "browser": true
     },
     ```
+
+- tsconfig配置
+  - global.d.ts 的 type ,在 build/\*\*/ 下无法被检测到
+  - 后来排查详细查看 https://juejin.cn/post/7224051399256096829

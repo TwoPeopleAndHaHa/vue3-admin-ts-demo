@@ -12,5 +12,4 @@ interface ImportMetaEnv extends ViteEnv {
 	__: unknown
 }
 
-import type { FormInstance } from 'element-plus'
-type FormEl = FormInstance | undefined
+declare type FormEl = import('element-plus').FormInstance | undefined
