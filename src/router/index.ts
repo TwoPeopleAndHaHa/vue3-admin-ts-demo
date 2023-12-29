@@ -1,22 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
+import { createRouter, createWebHashHistory } from 'vue-router'
+const HOME_URL = '/layout'
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHashHistory(),
 	routes: [
 		{
 			path: '/',
-			redirect: '/login',
+			redirect: HOME_URL,
+		},
+		{
+			path: '/layout',
+			name: 'layout',
+			component: () => import('@/layouts/index.vue'),
 		},
 		{
 			path: '/home',
 			name: 'home',
 			component: () => import('@/views/home/index.vue'),
 		},
-		{
-			path: '/login',
-			name: 'login',
-			component: () => import('@/views/login/index.vue'),
-		},
+		// {
+		// 	path: '/login',
+		// 	name: 'login',
+		// 	component: () => import('@/views/login/index.vue'),
+		// },
 	],
 })
 router.beforeEach((to, from, next) => {

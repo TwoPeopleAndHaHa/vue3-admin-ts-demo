@@ -23,3 +23,5 @@
 - tsconfig配置
   - global.d.ts 的 type ,在 build/\*\*/ 下无法被检测到
   - 后来排查详细查看 https://juejin.cn/post/7224051399256096829
+
+<!-- 2023.12.29 待更新mock和axios -->

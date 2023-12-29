@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import '@/styles/reset.less'
 import '@/styles/common.less'
+import '@/styles/element.less'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
