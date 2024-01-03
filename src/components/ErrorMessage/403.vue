@@ -22,5 +22,5 @@
 </script>
 
 <style scoped lang="less">
-	@import './index.scss';
+	@import './index.less';
 </style>

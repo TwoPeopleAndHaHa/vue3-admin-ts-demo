@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import pinia from '@/stores/index'
 import App from './App.vue'
 import router from './router'
 import '@/styles/reset.less'
@@ -13,7 +13,7 @@ const app = createApp(App)
 Object.keys(Icons).forEach(key => {
 	app.component(key, Icons[key as keyof typeof Icons])
 })
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 app.use(ElementPlus)
 

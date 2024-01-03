@@ -94,7 +94,8 @@
 					loading.value = true
 					const { data } = await login({
 						...loginForm.value,
-						password: md5(loginForm.value.password),
+						// password: md5(loginForm.value.password),
+						password: loginForm.value.password,
 					})
 					userStore.setToken(data.access_token)
 					// 调用初始化路由

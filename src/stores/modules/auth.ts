@@ -40,5 +40,4 @@ export const useAuthStore = defineStore('useAuthStore', {
 			this.routeName = name
 		},
 	},
-	persist: true,
 })
