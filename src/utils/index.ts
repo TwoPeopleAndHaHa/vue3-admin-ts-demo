@@ -56,3 +56,25 @@ export function getTimeState() {
 	if (hours >= 18 && hours <= 24) return `晚上好 🌛`
 	if (hours >= 0 && hours <= 6) return `凌晨好 🌛`
 }
+/**
+ * @description 获取当前设备类型
+ * @returns {String} mobile | desktop
+ */
+// 获取当前设备类型
+const getDeviceType = () => {
+	// 使用设备类型 API（如果浏览器支持）
+	if ('maxTouchPoints' in navigator) {
+		return navigator.maxTouchPoints > 0 ? 'mobile' : 'desktop'
+	}
+	// 如果设备类型 API 不可用，使用用户代理字符串进行判断
+	const userAgent = window.navigator.userAgent
+	if (
+		/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+			userAgent,
+		)
+	) {
+		return 'mobile'
+	} else {
+		return 'desktop'
+	}
+}
