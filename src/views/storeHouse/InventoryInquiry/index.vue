@@ -40,32 +40,35 @@
 					max-height="100%"
 					style="width: 100%">
 					<el-table-column
-						prop="time"
-						label="操作日期" />
+						prop="itemID"
+						label="编号" />
 					<el-table-column
-						prop="storeType"
-						label="仓库类型" />
+						prop="ID"
+						label="序号" />
 					<el-table-column
-						prop="storeName"
-						label="所属仓库" />
+						prop="outTime"
+						label="出库日期" />
 					<el-table-column
-						prop="commodityId"
-						label="货物编码" />
+						prop="MaterialName"
+						label="材料名称" />
 					<el-table-column
-						prop="commodityName"
-						label="货物名称" />
+						prop="Material"
+						label="材质" />
 					<el-table-column
-						prop="type"
-						label="货物状态还是其他状态" />
-					<el-table-column
-						prop="storeNum"
-						label="库存变动" />
-					<el-table-column
-						prop="brand"
-						label="brand" />
+						prop="specificationType"
+						label="规格型号" />
 					<el-table-column
 						prop="unit"
-						label="计量单位" />
+						label="单位" />
+					<el-table-column
+						prop="storeSurPlusNum"
+						label="库存余量" />
+					<el-table-column
+						prop="storePosition"
+						label="库存位置" />
+					<el-table-column
+						prop="remark"
+						label="备注" />
 				</el-table>
 			</div>
 		</div>
@@ -82,28 +85,30 @@
 		console.log('submit!')
 	}
 	const tableData: {
-		time: string
-		storeType: string
-		storeName: string
-		commodityId: string
-		commodityName: string
-		type: string
-		storeNum: string
-		brand: string
+		itemID: string
+		ID: string
+		outTime: string
+		MaterialName: string
+		Material: string
+		specificationType: string
 		unit: string
+		storeSurPlusNum: string
+		storePosition: string
+		remark: string
 	}[] = reactive([])
 	onMounted(() => {
 		for (let i = 0; i < 100; i++) {
 			const data = {
-				time: '2023/1/1',
-				storeType: 'xx类型',
-				storeName: '仓库1',
-				commodityId: 'abcdefg',
-				commodityName: '钢筋/混泥土/砖块儿',
-				type: '状态',
-				storeNum: '1000',
-				brand: '品牌',
-				unit: '吨',
+				itemID: 'itemID',
+				ID: 'ID',
+				outTime: 'outTime',
+				MaterialName: 'MaterialName',
+				Material: 'Material',
+				specificationType: 'specificationType',
+				unit: 'unit',
+				storeSurPlusNum: 'storeSurPlusNum',
+				storePosition: 'storePosition',
+				remark: 'remark',
 			}
 			tableData.push(data)
 		}
