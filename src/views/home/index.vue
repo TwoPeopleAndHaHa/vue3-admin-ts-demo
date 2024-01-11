@@ -69,25 +69,22 @@
 		// 其他属性...
 	}
 	const jsonData = ref<Person[]>([]) // 存放转换后的 JSON 数据
-	const handleBeforeUpload = (file: any) => {
-		console.log(' file ::>', file)
+	const handleBeforeUpload = (file: any): Promise<void> => {
 		const reader = new FileReader()
-		reader.onload = function (e) {
-			console.log('2 ::>', 2)
-			const data = new Uint8Array(
-				(e.target as FileReader).result as ArrayBuffer,
-			)
-			const workbook = XLSX.read(data, { type: 'array' })
-			const sheetName = workbook.SheetNames[0]
-			const sheet = workbook.Sheets[sheetName]
-
-			jsonData.value = XLSX.utils.sheet_to_json(sheet) as Person[]
-		}
-		reader.onerror = e => {
-			console.log(' reader ::>', reader)
-			console.log(' reader ::>', reader.error)
-		}
-		reader.readAsArrayBuffer(file)
+		return new Promise((resolve, reject) => {
+			reader.onload = function (e) {
+				const data = new Uint8Array(
+					(e.target as FileReader).result as ArrayBuffer,
+				)
+				const workbook = XLSX.read(data, { type: 'array' })
+				const sheetName = workbook.SheetNames[0]
+				const sheet = workbook.Sheets[sheetName]
+				jsonData.value = XLSX.utils.sheet_to_json(sheet) as Person[]
+				console.log(' json ::>', jsonData.value)
+				resolve()
+			}
+			reader.readAsArrayBuffer(file)
+		})
 	}
 </script>
 

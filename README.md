@@ -26,5 +26,9 @@
   - 后来排查详细查看 https://juejin.cn/post/7224051399256096829
 
 - 动态路由等路由刷新页面404
+
   - 原因是因为页面刷新时候动态添加的路由并不会留存,再次刷新时需要重新调用一次addRoute
   - 解决思路 : 在 router.beforeEach 进行逻辑判断使其调用两遍路由守卫 , 最简单的做法就是不要把 store 的路由数据进行缓存,每次刷新就重新去调用接口获取异步路由
+
+- mock.js 与 el-upload 冲突
+  - 因为 mock 会把 XMLHttpRequest 代理到 window.XMLHttpRequest, 导致 el-upload 无法正常使用, 解决方法最好是将 mock 移除
