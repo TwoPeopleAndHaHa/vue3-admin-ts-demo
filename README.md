@@ -31,4 +31,4 @@
   - 解决思路 : 在 router.beforeEach 进行逻辑判断使其调用两遍路由守卫 , 最简单的做法就是不要把 store 的路由数据进行缓存,每次刷新就重新去调用接口获取异步路由
 
 - mock.js 与 el-upload 冲突
-  - 因为 mock 会把 XMLHttpRequest 代理到 window.XMLHttpRequest, 导致 el-upload 无法正常使用, 解决方法最好是将 mock 移除
+  - 因为 mock 会把 XMLHttpRequest 代理到 window.XMLHttpRequest, 导致 el-upload 无法正常使用, 解决方法最好是将 mock 移除 (https://github.com/nuysoft/Mock/issues/244)
