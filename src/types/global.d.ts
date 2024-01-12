@@ -34,3 +34,15 @@ declare namespace Menu {
 		isKeepAlive: boolean
 	}
 }
+declare interface TableData {
+	itemID: string
+	ID: string
+	outTime: string
+	MaterialName: string
+	Material: string
+	specificationType: string
+	unit: string
+	storeSurPlusNum: string
+	storePosition: string
+	remark: string
+}

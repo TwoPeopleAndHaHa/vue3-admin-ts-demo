@@ -28,7 +28,11 @@
 						搜索
 					</el-button>
 					<el-button type="success">导出</el-button>
-					<el-button type="success">导入</el-button>
+					<el-button
+						type="success"
+						@click="handleOpenDialog">
+						导入
+					</el-button>
 				</el-form-item>
 			</el-form>
 		</div>
@@ -40,39 +44,67 @@
 					max-height="100%"
 					style="width: 100%">
 					<el-table-column
+						center
 						prop="itemID"
 						label="编号" />
 					<el-table-column
+						center
 						prop="ID"
 						label="序号" />
 					<el-table-column
+						center
 						prop="outTime"
 						label="出库日期" />
 					<el-table-column
+						center
 						prop="MaterialName"
 						label="材料名称" />
 					<el-table-column
+						center
 						prop="Material"
 						label="材质" />
 					<el-table-column
+						center
 						prop="specificationType"
 						label="规格型号" />
 					<el-table-column
+						center
 						prop="unit"
 						label="单位" />
 					<el-table-column
+						center
 						prop="storeSurPlusNum"
 						label="库存余量" />
 					<el-table-column
+						center
 						prop="storePosition"
 						label="库存位置" />
 					<el-table-column
+						center
 						prop="remark"
 						label="备注" />
 				</el-table>
 			</div>
 		</div>
-		<div class="card_footer">3</div>
+		<div class="card_footer">分页</div>
+		<el-dialog
+			title="请导入文件"
+			v-model="isShowImport"
+			:before-close="handleClose"
+			:close-on-click-modal="false"
+			:show-close="true">
+			<UploadExcel />
+			<template #footer>
+				<span class="dialog-footer">
+					<el-button @click="handleClose">取消</el-button>
+					<el-button
+						type="primary"
+						@click="handleSubmit">
+						确定
+					</el-button>
+				</span>
+			</template>
+		</el-dialog>
 	</div>
 </template>
 
@@ -84,18 +116,17 @@
 	const onSubmit = () => {
 		console.log('submit!')
 	}
-	const tableData: {
-		itemID: string
-		ID: string
-		outTime: string
-		MaterialName: string
-		Material: string
-		specificationType: string
-		unit: string
-		storeSurPlusNum: string
-		storePosition: string
-		remark: string
-	}[] = reactive([])
+
+	const tableData = ref<TableData[]>([])
+	const isShowImport = ref(false)
+	const handleOpenDialog = () => {
+		isShowImport.value = true
+	}
+	const handleClose = () => {
+		isShowImport.value = false
+	}
+	// 获取到excel数据,点击确定生成json文件
+	const handleSubmit = () => {}
 	onMounted(() => {
 		for (let i = 0; i < 100; i++) {
 			const data = {
@@ -110,7 +141,7 @@
 				storePosition: 'storePosition',
 				remark: 'remark',
 			}
-			tableData.push(data)
+			tableData.value.push(data)
 		}
 	})
 </script>
@@ -131,5 +162,6 @@
 	}
 	.card_footer {
 		width: 100%;
+		padding: 10px 0;
 	}
 </style>
