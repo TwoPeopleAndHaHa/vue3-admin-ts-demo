@@ -212,6 +212,36 @@ const Mock = {
 					},
 				],
 			},
+			{
+				path: '/commonComponents',
+				name: 'commonComponents',
+				redirect: '/commonComponents/cycleTime',
+				meta: {
+					icon: 'List',
+					title: '常用组件',
+					isLink: '',
+					isHide: false,
+					isFull: false,
+					isAffix: false,
+					isKeepAlive: true,
+				},
+				children: [
+					{
+						path: '/commonComponents/cycleTime',
+						name: 'cycleTime',
+						component: '/commonComponents/cycleTime/index',
+						meta: {
+							icon: 'Menu',
+							title: '周期时间',
+							isLink: '',
+							isHide: false,
+							isFull: false,
+							isAffix: false,
+							isKeepAlive: true,
+						},
+					},
+				],
+			},
 			// {
 			// 	path: '/dataScreen',
 			// 	name: 'dataScreen',
