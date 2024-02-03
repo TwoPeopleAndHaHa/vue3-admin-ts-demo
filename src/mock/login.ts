@@ -26,13 +26,14 @@ const Mock = {
 			{
 				path: '/storeHouse',
 				name: 'storeHouse',
+				redirect: '/storeHouse/InventoryInquiry',
 				meta: {
 					icon: 'List',
 					title: '仓库管理',
 					isLink: '',
 					isHide: false,
 					isFull: false,
-					isAffix: true,
+					isAffix: false,
 					isKeepAlive: true,
 				},
 				children: [

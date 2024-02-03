@@ -1,6 +1,6 @@
 <template>
 	<!-- <Maximize v-show="maximize" /> -->
-	<!-- <Tabs v-show="tabs" /> -->
+	<Tabs v-show="tabs" />
 	<el-main>
 		<router-view v-slot="{ Component, route }">
 			<transition
@@ -28,7 +28,7 @@
 	import { useGlobalStore } from '@/stores/modules/global'
 	import { useKeepAliveStore } from '@/stores/modules/keepAlive'
 	// import Maximize from './components/Maximize.vue'
-	// import Tabs from '@/layouts/components/Tabs/index.vue'
+	import Tabs from '@/layouts/components/Tabs/index.vue'
 	import Footer from '@/layouts/components/Footer/index.vue'
 
 	const globalStore = useGlobalStore()
